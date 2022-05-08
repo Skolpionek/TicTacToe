@@ -1,0 +1,111 @@
+:root{
+   --field-size:calc(40vw / 3);
+}
+body{
+   margin: 0;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+#container{
+   height: calc(40vw + 6px);
+   width: calc(40vw + 6px);
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   border: 1px solid black;
+}
+#turn{
+   font-size: 45px;
+   font-weight: 800;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.field{
+   height: var(--field-size);
+   width: var(--field-size);
+   border: 1px solid rgb(0, 0, 0);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   cursor: pointer;
+}
+.field.x, .field.o{
+   cursor: not-allowed;
+}
+.x::after{
+   content: "";
+   height: calc(var(--field-size) * 0.9);
+   width: calc(var(--field-size) * 0.2);
+   background-color: black;
+   transform: rotate(45deg);
+   position: absolute;
+}
+.x::before{
+   content: "";
+   height: calc(var(--field-size) * 0.9);
+   width: calc(var(--field-size) * 0.2);
+   background-color: black;
+   transform: rotate(-45deg);
+   position: absolute;
+}
+.o::before{
+   content: "";
+   height: calc(var(--field-size) * 0.9);
+   width: calc(var(--field-size) * 0.9);
+   background-color: black;
+   border-radius: 50%;
+   position: absolute;
+}
+.o::after{
+   content: "";
+   height: calc(var(--field-size) * 0.55);
+   width: calc(var(--field-size) * 0.55);
+   background-color: rgb(255, 255, 255);
+   border-radius: 50%;
+   position: absolute;
+}
+.message{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.888);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   transition: 0.5s;
+}
+#restart{
+   height: 50px;
+   width: 250px;
+   font-size: 40px;
+   font-weight: 800;
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-transform: uppercase;
+   transition: .5s;
+   cursor: pointer;
+}
+#restart:hover{
+   transition: .5s;
+   width: 300px;
+   color: white;
+   background-color: black;
+   border: 1px solid white;
+}
+.text{
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 40px;
+}
+.disabled{
+   top: -100vh !important;
+   transition: 0.5s;
+}
